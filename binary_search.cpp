@@ -7,27 +7,44 @@
 using namespace std;
 
 int main(){
-    
-    vector<int> sorted_array = {0, 1, 2, 3, 4, 6, 8, 9, 20, 30};
-    int high = sorted_array.size();
+    vector<int> array = {1,2,3,4,5,6,7,8,9,10};
+    int high = array.size();
     int low = 0;
-    int mid = low + (high - low) / 2;
-    int target = 3;
-    
+    int current;
+    int middle;
+    int target = 7;
     while(low < high){
-        mid = low + (high - low) / 2;
-        int current = sorted_array[mid];
+        middle = low + (high - low) / 2;
+        current = array[middle];
         if(current == target){
-            cout << "you found it!" << endl;
-            break;
+            return true;
         } else if(current > target){
-            high = mid;
-        } else{
-            low = mid + 1;
+            high = middle;
+        } else if(current < target){
+            low = current + 1;
         }
     }
-    return 0;
+   return 0;
 }
+
+// vector<int> sorted_array = {0, 1, 2, 3, 4, 6, 8, 9, 20, 30};
+//     int high = sorted_array.size();
+//     int low = 0;
+//     int mid = low + (high - low) / 2;
+//     int target = 3;
+    
+//     while(low < high){
+//         mid = low + (high - low) / 2;
+//         int current = sorted_array[mid];
+//         if(current == target){
+//             cout << "you found it!" << endl;
+//             break;
+//         } else if(current > target){
+//             high = mid;
+//         } else{
+//             low = mid + 1;
+//         }
+//    }
 
 //int length = sorted_array.size();
 //        int target = 1;
