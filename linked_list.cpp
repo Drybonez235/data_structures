@@ -36,23 +36,26 @@ struct linked_list{
             temp = temp->next;
         }
         temp->next = node_to_add;
+        cout << "added node " << number_to_add << " to the list" << endl;
     }
+
     void delete_node(int value_to_delete){
         if(head == NULL){
             cout << "this is EMPTY" << endl;
             return;
         }
         node* current_temp;
-        current_temp = head;
-        node* past_temp;
+        current_temp = head; //starting
+        node* past_temp = current_temp;
         while(current_temp != NULL){
-            past_temp = current_temp;
             if(current_temp->value == value_to_delete){
-                past_temp = current_temp->next;
+                current_temp = current_temp->next;
+                past_temp->next = current_temp;
                 cout << "deleted node " << value_to_delete << endl;
                 return;
             }
             else{
+                past_temp = current_temp;
                 current_temp = current_temp->next; //This is hopping to the next node.
             }
         }
